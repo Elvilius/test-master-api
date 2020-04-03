@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import db from './database/connection';
+import router from './message/controller';
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(bodyParser.json());
+app.use(router);
 app.use(cookieParser());
 
 
