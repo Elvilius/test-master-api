@@ -27,8 +27,15 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-  const entities = await findAll();
-  return res.json({ data: { entities } });
+  try {
+    const entities = await findAll();
+    return res.json({ data: { entities } });
+  } catch (err) {
+    res.status(500);
+    return res.json({
+      error: err.message,
+    });
+  }
 });
 
 export default router;
