@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-  const entities = findAll();
+  const entities = await findAll();
   return res.json({ data: { entities } });
 });
 
